@@ -1,0 +1,314 @@
+##########################################################
+# Namespaces
+
+##########################################################
+
+
+# declare namespaces in the form
+# ns_<shorthand>=<uri>
+ns_rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#
+ns_rdfs=http://www.w3.org/2000/01/rdf-schema#
+ns_dc=http://purl.org/dc/elements/1.1/
+ns_dct=http://purl.org/dc/terms/
+ns_bibo=http://purl.org/ontology/bibo/
+ns_foaf=http://xmlns.com/foaf/0.1/
+ns_vcard=http://www.w3.org/2001/vcard-rdf/3.0#
+# if a namespace with shorthand 'unknown' is declared,
+# this namespace is used to create RDF property names
+# for unknown BibTeX fields.
+# By default, unknown fields are ignored.
+#ns_unknown=http://www.edutella.org/bibtex_unknown/
+
+# if a namespace with shorthand 'bibtex' is declared,
+# this namespace is used to create RDF property names
+# for known BibTeX types and fields, if they
+# arent mapped to DC or RDF properties
+#ns_bibtex=http://www.edutella.org/bibtex#
+ns_bibtex=http://purl.org/net/nknouf/ns/bibtex#
+
+
+##########################################################
+# Flags
+##########################################################
+
+# flags control the way the output is structured
+
+# create a property where year and month are merged as
+# one property (in the form YYYY-MM)
+createDate=true
+
+# try to create an address resource and split the
+# address field into components (Locality and Country)
+createAddressResource=true
+
+# create a Seq for author and editor lists.
+# if this flag is set to false, each author/editor
+# is added directly as property to the entry resource
+createSeqForPersonList=true
+
+# create a separate resource for each author/editor.
+# If this flag is false, the fullname is used as
+# property value.
+createPersonResource=true
+
+# create separate resources for collections
+# (proceedings, journals, etc.).
+# If this flag is false, the collection title
+# (and all other collection related information)
+# is added directly to the entry resource.
+createCollectionResource=true
+
+# add a Seq of all generated entries to the output.
+# creates a Seq which contains all entry references.
+# this allows to preserve the entry order information.
+# the URI of this sequence will be <baseUri>+"referenceList"
+createEntryList=false
+
+# add datatype declarations to all literals
+createDatatypes=false
+
+# to overwrite default datatypes, use the following entries
+# all other fields are of type xsd:string and currently not overwritable
+yearType=http://www.w3.org/2001/XMLSchema#gYear
+numberType=http://www.w3.org/2001/XMLSchema#nonNegativeInteger
+volumeType=http://www.w3.org/2001/XMLSchema#nonNegativeInteger
+chapterType=http://www.w3.org/2001/XMLSchema#nonNegativeInteger
+dateType=http://www.w3.org/2001/XMLSchema#gYearMonth
+
+
+##########################################################
+# Field output lists
+##########################################################
+
+# field output lists have three purposes:
+# - they allow to restrict the output to a selected subset
+#   of fields
+# - they allow to specify which fields are collection
+#   information and which are entry information
+# - they allow to specify if some special output is
+#   requested which doesn't directly correspond to
+#   a BibTeX field
+#   Such additional properties are:
+#   - sourceFile: outputs source file information
+#   - label:      adds a label to a resource
+#   - shortTitle: tries to extract a short title from
+#                 the title and adds it as separate
+#                 property
+#
+# as shorthand, the pseudo-field "all" is allowed to
+# specify that all fields for which a mapping is available
+# should be mapped. Note that the latter three special
+# properties are not included in "all". To get these, you
+# have to specify them additionally, as in "all, label, sourceFile".
+
+# for BibTeX entries, output all fields, but nothing special.
+entryProperties=all
+
+# for person and organization resources, output all
+# available fields. This is a full name and a
+# structured name resource according to vCard.
+personProperties=all
+
+# assign the following fields to collection resources.
+# this is the default for all collection types.
+collectionProperties=address, booktitle, crossref, editor, journal, location,\
+				     month, number, publisher, series, volume, year, shortTitle
+
+# if you want to assign different fields to specific collection
+# types, you can overwrite the default by setting the following properties.
+#proceedingsProperties=address, booktitle, location, publisher, month, volume, year
+#journalProperties=address, journal, month, number, publisher, volume, year
+#seriesProperties=publisher,series
+#bookProperties=booktitle, editor, series, year
+
+
+# if you only want the fullname, use
+# personProperties=personFullname
+
+# if you want to output some fields just as strings, add them to the following list
+verbatimProperties=note, annote, key
+
+
+
+##########################################################
+# Type mappings
+##########################################################
+
+# Types start with an upper case letter
+
+# Default entry types and their associated RDF types
+Article=bibo:AcademicArticle
+Book=bibo:Book
+InBook=bibo:Chapter
+MastersThesis=bibo:Thesis
+Periodical=bibo:Periodical
+PhdThesis=bibo:Thesis
+Proceedings=bibo:Proceedings
+TechReport=bibo:Report
+Conference=bibo:Conference
+Misc=bibo:Document
+Booklet=bibtex:Publication
+Manual=bibtex:Manual
+InCollection=bibtex:InCollection
+InProceedings=bibtex:InProceedings
+Unpublished=bibtex:Unpublished
+
+# You may add new non-standard entry types
+# which will be translated according to the
+# specified mapping
+# Matharticle=bibtex:Article
+# Mastersthesis=bibtex:Masterthesis
+# Masterthesis=bibtex:Masterthesis
+# Mscthesis=bibtex:Masterthesis
+# Periodical=bibtex:Publication
+
+# Types assigned to person and organization
+# resources from the corresponding BibTeX field.
+Author=foaf:Person
+Editor=foaf:Person
+
+Organization=bibtex:Organization
+Institution=bibtex:Organization
+School=bibtex:Organization
+Publisher=bibtex:Organization
+
+# Types assigned to collection resources
+# They are inferred from the entry type
+# and from the BibTeX field.
+# Proceedings and Books are already defined above
+
+# collection for @article
+Journal=bibo:Journal
+
+# collection for series field
+Series=bibo:Series
+
+# everything else
+Collection=bibo:Collection
+
+# special cases
+
+# resource for the 'and other' author/editor part
+EtAl=bibtex:EtAl
+
+# type of resource which represents the source file
+#BibFile=bibtex:SourceFile
+
+
+##########################################################
+# Field mappings
+##########################################################
+
+# fields start with a lower case letter
+
+# address related fields
+address=vcard:ADR
+location=vcard:ADR
+
+# date related fields
+year=bibtex:year
+month=bibtex:month
+
+# title related fields
+title=dct:title
+
+# collection related fields
+#
+# Note that in the collection resource these
+# fields are always mapped to the title property.
+#
+# if you set createCollectionResource to false,
+# you also need to change the mapping for these fields.
+booktitle=dct:isPartOf
+journal=dct:isPartOf
+series=dct:isPartOf
+crossref=dct:isPartOf
+
+# person or organization related fields
+author=dct:creator
+editor=bibtex:editor
+
+publisher=dc:publisher
+institution=bibtex:institution
+organization=bibtex:organization
+school=bibtex:school
+
+# identifier fields
+url=dct:hasFormat
+key=dct:identifier
+
+
+# all other bibtex fields
+annote=bibtex:annote
+chapter=bibtex:chapter
+edition=bibtex:edition
+howpublished=bibtex:howpublished
+note=bibtex:note
+number=bibtex:number
+pages=bibtex:pages
+type=bibtex:type
+volume=bibtex:volume
+
+abstract=dct:abstract
+keywords=bibtex:keywords
+isbn=bibo:isbn
+issn=bibo:issn
+doi=bibo:doi
+biburl=rdfs:seeAlso
+
+# fields derived from BibTeX information
+
+#used if createAddressResource
+addressCountry=vcard:Country
+addressLocality=vcard:Locality
+
+# used for the merged date
+date=dct:issued
+
+# used for person and organization resources
+personFullname=foaf:name
+personStructuredName=vcard:N
+
+# the structured name has several parts.
+# "Charles Louis Xavier Joseph de la Vallee Poussin Jr" is
+# split as follows:
+# nameFamily = "Vallee Poussin"
+# namePrefix = "de la"
+# nameSuffix = "Jr"
+# nameGiven  = "Charles"
+# nameOther  = "Louis Xavier Joseph"
+nameFamily=vcard:Family
+namePrefix=vcard:Prefix
+nameSuffix=vcard:Suffix
+nameGiven=vcard:Given
+nameOther=vcard:Other
+
+# property used to attach a label
+label=rdfs:label
+
+# While Persons and Organizations always get their full name as label,
+# you can specify a label pattern for entries. Use <field> to refer
+# to a BibTex field and 'text' to include fixed text.
+# you can concatenate any elements using +.
+# to add label components only if a specific field x exists, use
+# (<x>: ...), e.g. (<year>: ', '+<year>)
+# This is the default setting:
+defaultLabelPattern=<title>
+
+# if you want to use different pattern for different types,
+# you can overwrite the default, e.g.:
+# articleLabelPattern=(<author>:<author>+'. ')+<title>+(<journal>:'. '+<journal>+(<volume>:' '+<volume>+(<number>:'('+<number>+')')))+(<year>:', '+<year>)
+
+# property used to attach source file information
+#sourceFile=bibtex:sourceFile
+
+# property used to add the absolute path as string
+# to the source file resource
+#fileAbsolutePath=bibtex:absolutePath
+
+bdsk-url-1=rdfs:seeAlso
+bdsk-url-2=rdfs:seeAlso
+bdsk-url-3=rdfs:seeAlso
+ee=rdfs:seeAlso
+
+subtitle=dct:isPartOf
