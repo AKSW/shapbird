@@ -1,7 +1,6 @@
 FROM debian
 
-WORKDIR /shapbird
-
+WORKDIR /shapbib2rdf
 COPY ./bib2rdf/Makefile ./bib2rdf/schema.map ./resources/aksw.bib ./
 
 RUN apt-get update \
@@ -13,4 +12,4 @@ RUN apt-get update \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 
-CMD ["make", "bib=aksw.bib"]
+ENTRYPOINT ["make"]

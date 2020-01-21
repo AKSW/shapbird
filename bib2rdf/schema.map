@@ -161,6 +161,11 @@ Unpublished=bibtex:Unpublished
 # Masterthesis=bibtex:Masterthesis
 # Mscthesis=bibtex:Masterthesis
 # Periodical=bibtex:Publication
+bdsk-url-1=rdfs:seeAlso
+bdsk-url-2=rdfs:seeAlso
+bdsk-url-3=rdfs:seeAlso
+ee=rdfs:seeAlso
+subtitle=dct:isPartOf
 
 # Types assigned to person and organization
 # resources from the corresponding BibTeX field.
@@ -305,10 +310,3 @@ defaultLabelPattern=<title>
 # property used to add the absolute path as string
 # to the source file resource
 #fileAbsolutePath=bibtex:absolutePath
-
-bdsk-url-1=rdfs:seeAlso
-bdsk-url-2=rdfs:seeAlso
-bdsk-url-3=rdfs:seeAlso
-ee=rdfs:seeAlso
-
-subtitle=dct:isPartOf
