@@ -4,12 +4,12 @@
 ### Docker
 
 * Run as container
-  1. ` $ docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile . `
-  2. ` $ docker run --rm -it -v <path to bib file>:/shapbib2rdf/bibtex.bib shapbird/bib-converter `
+	1. ` $ docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile . `
+	2. ` $ docker run --rm -it -v <path/to/bib/file>:/shapbib2rdf/resources/bibtex.bib shapbird/bib-converter `
 
 ### Make
  
-* ` $ make bib=<bib-path> ` converts a provided BibTeX file into a RDF file (default: ` bib=../resources/aksw.bib `)
+* ` $ make BIB=<path/to/bib/file> [URI=<base-uri>] ` converts a provided BibTeX file into a RDF file (defaults: ` BIB=../resources/aksw.bib | URI = http://example.org/bib/ `)
 
 
 
@@ -18,8 +18,8 @@
 ### Built With
 
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
-* [Make](https://www.gnu.org/software/make/) - Used to run conversion
-* [Docker](https://www.docker.com/) - Used to build and run as containers
+* [Make](https://www.gnu.org/software/make/) - Used for the conversion
+* [Docker](https://www.docker.com/) - Used to build and run
 
 ### Mapping (bib2rdf/schema.map)
 

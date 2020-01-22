@@ -12,4 +12,4 @@ RUN apt-get update \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["make","bib=bibtex.bib"]
+ENTRYPOINT ["make","BIB=./resources/bibtex.bib"]
