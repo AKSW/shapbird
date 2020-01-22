@@ -3,8 +3,8 @@
 ### Docker
 
 * Run as container
-  1. ` $ docker build -t shapbird/shacl -f shacl/Dockerfile . `
-  2. ` $ docker run --rm -it -v <path to rdf file>:/shapshacl/dataGraph.rdf shapbird/shacl `
+	1. ` $ docker build -t shapbird/shacl -f shacl/Dockerfile . `
+	2. ` $ docker run --rm -it -v <path/to/rdf/file>:/shapshacl/resources/bibtex.rdf shapbird/shacl `
 
 
 
@@ -13,4 +13,4 @@
 ### Built With
 
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes
-* [Docker](https://www.docker.com/) - Used to build and run as container
+* [Docker](https://www.docker.com/) - Used to build and run
