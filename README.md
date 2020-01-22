@@ -16,6 +16,7 @@ Shapes for Bibtex to RDF
 2. ` $ make run BIB=<path/to/bib/file> [URI=<base-uri>] `
 	* Runs the bib2rdf and shacl docker containers
 	* Always calls 'make clean'
+	* Default ` URI = http://example.org/bib/ `
 
 * ` $ make clean `
 	* Removes unwanted docker container and volume after run
@@ -111,7 +112,6 @@ Person or organization related fields
 Identifier fields
 * url=dct:hasFormat
 * key=dct:identifier* 
-* 
 
 All other bibtex fields
 * annote=bibtex:annote
@@ -148,7 +148,7 @@ Used for person and organization resources
 * personFullname=foaf:name
 * personStructuredName=vcard:N* 
 
-The structured name has several parts.
+The structured name has several parts
 * nameFamily=vcard:Family
 * namePrefix=vcard:Prefix
 * nameSuffix=vcard:Suffix

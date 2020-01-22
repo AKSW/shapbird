@@ -3,9 +3,8 @@
 
 ### Docker
 
-* Run as container
-	1. ` $ docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile . `
-	2. ` $ docker run --rm -it -v <path/to/bib/file>:/shapbib2rdf/resources/bibtex.bib shapbird/bib-converter `
+1. ` $ docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile . `
+2. ` $ docker run --rm -it -v <path/to/bib/file>:/shapbib2rdf/resources/bibtex.bib shapbird/bib-converter `
 
 ### Make
  
@@ -99,7 +98,6 @@ Person or organization related fields
 Identifier fields
 * url=dct:hasFormat
 * key=dct:identifier* 
-* 
 
 All other bibtex fields
 * annote=bibtex:annote
@@ -136,7 +134,7 @@ Used for person and organization resources
 * personFullname=foaf:name
 * personStructuredName=vcard:N* 
 
-The structured name has several parts.
+The structured name has several parts
 * nameFamily=vcard:Family
 * namePrefix=vcard:Prefix
 * nameSuffix=vcard:Suffix
