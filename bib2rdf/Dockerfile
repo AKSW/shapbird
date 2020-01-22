@@ -1,7 +1,7 @@
 FROM debian
 
 WORKDIR /shapbib2rdf
-COPY ./bib2rdf/Makefile ./bib2rdf/schema.map ./resources/aksw.bib ./
+COPY ./Makefile ./schema.map ./
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -12,4 +12,4 @@ RUN apt-get update \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["make"]
+ENTRYPOINT ["make","bib=bibtex.bib"]

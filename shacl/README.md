@@ -3,9 +3,8 @@
 ### Docker
 
 * Run as container
-* From shapbird directory use
   1. ` $ docker build -t shapbird/shacl -f shacl/Dockerfile . `
-  2. ` $ docker run --rm -it shapbird/shacl <dataGraph-path> `
+  2. ` $ docker run --rm -it -v <path to rdf file>:/shapshacl/dataGraph.rdf shapbird/shacl `
 
 
 
