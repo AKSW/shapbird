@@ -1,15 +1,18 @@
-FROM debian
+# Image to get jar
+FROM cirrusci/wget as wget
 
-WORKDIR /shapbib2rdf
+WORKDIR /shapshacl
+
+RUN wget https://www.l3s.de/~siberski/bibtex2rdf/bibtex2rdf.jar
+
+
+
+# Final image to run conversion
+FROM openjdk:8-jdk-slim
+
+COPY --from=wget /shapshacl/bibtex2rdf.jar /shapshacl/bibtex2rdf.jar
+WORKDIR /shapshacl
+
 COPY ./Makefile ./schema.map ./
 
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		wget \
-		ca-certificates \
-		make \
-		default-jdk \
-	&& apt-get autoremove \
-	&& rm -rf /var/lib/apt/lists/*
-
-ENTRYPOINT ["make","BIB=./resources/bibtex.bib"]
+ENTRYPOINT ["java","-jar","bibtex2rdf.jar","-schema","schema.map","-enc","UTF-8","/shapbib2rdf/resources/bibtex.bib","/shapbib2rdf/resources/bibtex.rdf","-baseuri"]

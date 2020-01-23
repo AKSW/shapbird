@@ -3,7 +3,7 @@
 
 ### Docker
 
-1. ` $ docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile . `
+1. ` $ docker build -t shapbird/bib-converter [-f Dockerfile_make] . `
 2. ` $ docker run --rm -it -v <path/to/bib/file>:/shapbib2rdf/resources/bibtex.bib shapbird/bib-converter `
 
 ### Make
@@ -17,8 +17,8 @@
 ### Built With
 
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
-* [Make](https://www.gnu.org/software/make/) - Used for the conversion
 * [Docker](https://www.docker.com/) - Used to build and run
+* [Make](https://www.gnu.org/software/make/) - Used for the conversion (optional)
 
 ### Mapping (bib2rdf/schema.map)
 

@@ -11,17 +11,15 @@ Shapes for Bibtex to RDF
 ### Make and Docker
 
 1. ` $ make build `
-	* Builds the bib2rdf and shacl docker images
+	* Builds the ShapBiRd Docker images
 
 2. ` $ make run BIB=<path/to/bib/file> [URI=<base-uri>] `
-	* Runs the bib2rdf and shacl docker containers
-	* Always calls 'make clean'
+	* Runs the ShapBiRd Docker containers, calls ` $ make clean `
 	* Default ` URI = http://example.org/bib/ `
 
 * ` $ make clean `
-	* Removes unwanted docker container and volume after run
-	* Also helps after a failed run
-
+	* Removes unwanted Docker leftovers after a run
+	* Called after successful and failed runs
 
 
 
@@ -29,7 +27,7 @@ Shapes for Bibtex to RDF
 
 ### Built With
 
-* [Make](https://www.gnu.org/software/make/) - Used to handle Docker and for the conversion
+* [Make](https://www.gnu.org/software/make/) - Used to handle the Docker workflow
 * [Docker](https://www.docker.com/) - Used to build and run
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes

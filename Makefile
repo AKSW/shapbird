@@ -3,7 +3,7 @@ URI = http://example.org/bib/
 
 build:
 	$(info Make: Building shapbird images.)
-	docker build -t shapbird/bib-converter -f bib2rdf/Dockerfile ./bib2rdf
+	docker build -t shapbird/bib-converter ./bib2rdf
 	@echo
 	docker build -t shapbird/shacl -f shacl/Dockerfile ./shacl
 
@@ -16,7 +16,7 @@ endif
 	@echo
 	docker cp $(BIB) dummy:/root/bibtex.bib || (make -s clean && exit 1)
 	@echo
-	docker run --rm -it -v shapvolume:/shapbib2rdf/resources shapbird/bib-converter URI=$(URI) || (make -s clean && exit 1)
+	docker run --rm -it -v shapvolume:/shapbib2rdf/resources shapbird/bib-converter $(URI) || (make -s clean && exit 1)
 	@echo
 	docker run --rm -it -v shapvolume:/shapshacl/resources shapbird/shacl || (make -s clean && exit 1)
 	@echo
