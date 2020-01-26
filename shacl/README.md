@@ -2,8 +2,8 @@
 
 ### Docker
 
-1. ` $ docker build -t shapbird/shacl . `
-2. ` $ docker run --rm -it -v <path/to/rdf/file>:/shapshacl/resources/bibtex.rdf shapbird/shacl `
+1. ` $ docker build -t shacl . `
+2. ` $ docker run --rm -it -v <path/to/rdf/file>:/data/bibtex.rdf shacl `
 
 
 

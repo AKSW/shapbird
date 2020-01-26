@@ -8,26 +8,24 @@ Shapes for Bibtex to RDF
 
 ## Command Line Use
 
-### Make and Docker
+### Docker Compose
 
-1. ` $ make build `
-	* Builds the ShapBiRd Docker images
+1. Save your BibTeX file as ` ./resources/aksw.bib `
 
-2. ` $ make run BIB=<path/to/bib/file> [URI=<base-uri>] `
-	* Runs the ShapBiRd Docker containers, calls ` $ make clean `
-	* Default ` URI = http://example.org/bib/ `
+2. ` $ docker-compose up`
+	* Builds, creates and starts the ShapBiRd Docker containers
+	* Uses default config 
+		` bib_path: ./resources/aksw.bib ` and ` base_uri: http://example.org/bib/ `
 
-* ` $ make clean `
-	* Removes unwanted Docker leftovers after a run
-	* Called after successful and failed runs
-
+3. ` $ docker-compose down -v `
+	* Stops and removes the ShapBiRd Docker containers and volumes
 
 
 ## Documentation
 
 ### Built With
 
-* [Make](https://www.gnu.org/software/make/) - Used to handle the Docker workflow
+* [Docker Compose](https://docs.docker.com/compose/) - Used to handle the Docker workflow
 * [Docker](https://www.docker.com/) - Used to build and run
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes
