@@ -1,21 +1,15 @@
-# Image to get wait-for-it.sh
-FROM alpine/git as git
-
-WORKDIR /
-
-RUN git clone https://github.com/vishnubob/wait-for-it
-
-
-
-# Final image to run validation
+# Image to run validation
 FROM python
-
-COPY --from=git /wait-for-it/wait-for-it.sh /shacl/wait-for-it.sh
 
 WORKDIR /shacl
 COPY ./ex_shape.ttl ./
 
-RUN pip3 install pyshacl \
-	&& chmod +x /shacl/wait-for-it.sh
+RUN pip3 install pyshacl
+
+## Get dockerize for use in docker-compose
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 ENTRYPOINT ["pyshacl","-s","ex_shape.ttl","-m","-i","rdfs","-a","-f","human","/data/bibtex.rdf"]

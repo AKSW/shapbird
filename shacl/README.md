@@ -13,3 +13,4 @@
 
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes
 * [Docker](https://www.docker.com/) - Used to build and run
+* [dockerize](https://github.com/jwilder/dockerize) - Used to wait for dependent services in Docker Compose

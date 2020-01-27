@@ -1,4 +1,4 @@
-# Image to get bibtex2rdf jar
+# Image to wget bibtex2rdf.jar
 FROM cirrusci/wget as wget
 
 WORKDIR /bib2rdf

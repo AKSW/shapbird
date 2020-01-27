@@ -6,13 +6,14 @@ services:
     command: ["http://example.org/bib/"]
     volumes:
       - datavolume:/data
-      # Mount BibTeX file from host
+      # Mount BibTeX file from host to volume
       - ./resources/aksw.bib:/data/bibtex.bib
 
   shacl:
     build: './shacl'
-    entrypoint: ["./wait-for-it.sh","--strict","--timeout=0","www.wikipedia.com:80","--"]
-    command: echo 'test'
+    # Wait for file from 'bib2rdf' using dockerize
+    entrypoint: ["dockerize","-wait","file:///data/bibtex.rdf","-timeout","1h",
+      "pyshacl","-s","ex_shape.ttl","-m","-i","rdfs","-a","-f","human","/data/bibtex.rdf"]
     volumes:
       - datavolume:/data
     depends_on:

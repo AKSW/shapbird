@@ -27,6 +27,7 @@ Shapes for Bibtex to RDF
 
 * [Docker Compose](https://docs.docker.com/compose/) - Used to handle the Docker workflow
 * [Docker](https://www.docker.com/) - Used to build and run
+* [dockerize](https://github.com/jwilder/dockerize) - Used to wait for dependent services in Docker Compose
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes
 
