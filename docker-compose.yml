@@ -11,11 +11,12 @@ services:
 
   shacl:
     build: './shacl'
+    entrypoint: ["./wait-for-it.sh","--strict","--timeout=0","www.wikipedia.com:80","--"]
+    command: echo 'test'
     volumes:
       - datavolume:/data
     depends_on:
       - bib2rdf
-      - mongo
 
 volumes:
   datavolume:
