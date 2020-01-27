@@ -3,8 +3,8 @@
 
 ### Docker
 
-1. ` $ docker build -t shapbird/bib-converter [-f Dockerfile_make] . `
-2. ` $ docker run --rm -it -v <path/to/bib/file>:/shapbib2rdf/resources/bibtex.bib shapbird/bib-converter `
+1. ` $ docker build -t bib2rdf [-f Dockerfile_make] . `
+2. ` $ docker run --rm -it -v <path/to/bib/file>:/data/bibtex.bib bib2rdf <base-uri>`
 
 ### Make
  
