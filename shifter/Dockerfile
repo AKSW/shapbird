@@ -3,9 +3,9 @@ FROM alpine/git as git
 
 WORKDIR /shifter
 
-RUN git clone https://github.com/luckyos-code/ShacShifter.git \
-	&& cd ShacShifter \
-	&& git checkout feature/BiblatexDefParser
+RUN git clone https://github.com/luckyos-code/ShacShifter.git
+WORKDIR /shifter/ShacShifter
+RUN git checkout feature/BiblatexDefParser
 
 
 
