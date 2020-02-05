@@ -153,20 +153,6 @@ InCollection=bibtex:InCollection
 InProceedings=bibtex:InProceedings
 Unpublished=bibtex:Unpublished
 
-# You may add new non-standard entry types
-# which will be translated according to the
-# specified mapping
-# Matharticle=bibtex:Article
-# Mastersthesis=bibtex:Masterthesis
-# Masterthesis=bibtex:Masterthesis
-# Mscthesis=bibtex:Masterthesis
-# Periodical=bibtex:Publication
-bdsk-url-1=rdfs:seeAlso
-bdsk-url-2=rdfs:seeAlso
-bdsk-url-3=rdfs:seeAlso
-ee=rdfs:seeAlso
-subtitle=dct:isPartOf
-
 # Types assigned to person and organization
 # resources from the corresponding BibTeX field.
 Author=foaf:Person
@@ -228,6 +214,7 @@ booktitle=dct:isPartOf
 journal=dct:isPartOf
 series=dct:isPartOf
 crossref=dct:isPartOf
+subtitle=dct:isPartOf
 
 # person or organization related fields
 author=dct:creator

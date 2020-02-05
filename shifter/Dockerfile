@@ -18,3 +18,5 @@ WORKDIR /shifter
 
 RUN pip install -r requirements.txt \
 	&& wget https://raw.githubusercontent.com/plk/biblatex/dev/tex/latex/biblatex/blx-dm.def
+
+ENTRYPOINT ["bin/ShacShifter","-b","blx-dm.def","-m","/data/schema.map","-o","/data/shapes.ttl"]
