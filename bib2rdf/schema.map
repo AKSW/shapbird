@@ -1,6 +1,5 @@
 ##########################################################
 # Namespaces
-
 ##########################################################
 
 
@@ -49,14 +48,16 @@ createSeqForPersonList=true
 # create a separate resource for each author/editor.
 # If this flag is false, the fullname is used as
 # property value.
-createPersonResource=true
+# TODO fix the errors because of occuring invalid uris
+createPersonResource=false
 
 # create separate resources for collections
 # (proceedings, journals, etc.).
 # If this flag is false, the collection title
 # (and all other collection related information)
 # is added directly to the entry resource.
-createCollectionResource=true
+# TODO fix the errors because of occuring invalid uris
+createCollectionResource=false
 
 # add a Seq of all generated entries to the output.
 # creates a Seq which contains all entry references.

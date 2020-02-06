@@ -3,7 +3,7 @@
 ### Docker
 
 1. ` $ docker build -t shifter . `
-2. ` $ docker run --rm -it -v <path/to/def/file>:/data/blx-dm.def shifter `
+2. ` $ docker run --rm -it -v <path/to/def/file>:/data/schema.map shifter `
 
 
 
