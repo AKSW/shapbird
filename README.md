@@ -21,6 +21,7 @@ Shapes for Bibtex to RDF
 	* Stops and removes the ShapBiRd Docker containers and volumes
 
 
+
 ## Documentation
 
 ### Built With
@@ -29,6 +30,8 @@ Shapes for Bibtex to RDF
 * [Docker](https://www.docker.com/) - Used to build and run
 * [dockerize](https://github.com/jwilder/dockerize) - Used to wait for dependent services in Docker Compose
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
+* [ShacShifter](https://github.com/AKSW/ShacShifter) - (WIP) Used to parse the BibLaTeX specification into SHACL shapes
+* [BibLaTeX Datamodel Specification](https://github.com/plk/biblatex/blob/dev/tex/latex/biblatex/blx-dm.def) - Used as source to generate shapes ([doc](http://mirror.physik-pool.tu-berlin.de/pub/CTAN/macros/latex/exptl/biblatex/doc/biblatex.pdf))
 * [pySHACL](https://github.com/RDFLib/pySHACL) - Used to run validation against SHACL shapes
 
 ### Mapping (bib2rdf/schema.map)
