@@ -4,7 +4,7 @@
 ### Docker
 
 1. ` $ docker build -t bib2rdf [-f Dockerfile_make] . `
-2. ` $ docker run --rm -it -v <path/to/bib/file>:/data/bibtex.bib bib2rdf <base-uri>`
+2. ` $ docker run --rm -it -v <path/to/bib/file>:/data/bibtex.bib bib2rdf `
 
 ### Make
  

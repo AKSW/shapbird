@@ -3,7 +3,6 @@ version: '3'
 services:
   bib2rdf:
     build: './bib2rdf'
-    command: ["http://example.org/bib/"]
     volumes:
       - datavolume:/data
       # Mount BibTeX file from host to volume
@@ -24,8 +23,8 @@ services:
       "-wait","file:///data/bibtex.rdf",
       "-wait","file:///data/shapes.ttl",
       "-timeout","10m",
-      "pyshacl","-s","/data/shapes.ttl","-m","-i","rdfs","-a","-f","human","/data/bibtex.rdf"
-    ]
+      "pyshacl"]
+    command: ["-s","/data/shapes.ttl","-m","-i","rdfs","-a","-f","human","/data/bibtex.rdf"]
     volumes:
       - datavolume:/data
     depends_on:
