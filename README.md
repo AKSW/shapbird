@@ -8,7 +8,15 @@ Shapes for Bibtex to RDF
 
 ## Command Line Use
 
-### Docker Compose
+### Deploy n8n and webhook workflow
+
+1. ` $ docker build -t shapbird-hook -f Dockerfile.hook . `
+	* 
+
+2. ` $ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --rm --name=shapbird-hook shapbird-hook `
+	* 
+
+### Direct use
 
 1. Save your BibTeX file as ` ./resources/aksw.bib `
 
@@ -28,6 +36,7 @@ Shapes for Bibtex to RDF
 
 * [Docker Compose](https://docs.docker.com/compose/) - Used to handle the Docker workflow
 * [Docker](https://www.docker.com/) - Used to build and run
+* [webhook](https://github.com/adnanh/webhook) - Used to wait for HTTP request to run workflow
 * [dockerize](https://github.com/jwilder/dockerize) - Used to wait for dependent services in Docker Compose
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
 * [ShacShifter](https://github.com/AKSW/ShacShifter) - (WIP) Used to parse the BibLaTeX specification into SHACL shapes
