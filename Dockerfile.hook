@@ -29,4 +29,4 @@ COPY ./ ./
 EXPOSE 9000
 
 ENTRYPOINT ["/usr/local/bin/webhook"]
-CMD ["-verbose", "-hooks=./hooks.json", "-hotreload"]
+CMD ["-verbose", "-hooks=/shapbird/webhook/hooks.json", "-hotreload"]

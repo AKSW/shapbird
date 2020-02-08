@@ -1,0 +1,7 @@
+[
+  {
+    "id": "deploy",
+    "execute-command": "/shapbird/webhook/deploy.sh",
+    "command-working-directory": "/shapbird"
+  }
+]

@@ -1,7 +1,0 @@
-[
-  {
-    "id": "deploy",
-    "execute-command": "/shapbird/deploy.sh",
-    "command-working-directory": "/"
-  }
-]
