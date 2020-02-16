@@ -18,13 +18,19 @@ services:
   shacl:
     build: './shacl'
     # Wait for files from 'bib2rdf' and 'shifter' using dockerize
-    entrypoint: [
+    command: [
       "dockerize",
-      "-wait","file:///data/bibtex.rdf",
-      "-wait","file:///data/shapes.ttl",
-      "-timeout","10m",
-      "pyshacl"]
-    command: ["-s","/data/shapes.ttl","-m","-i","rdfs","-a","-f","human","/data/bibtex.rdf"]
+        "-wait","file:///data/bibtex.rdf",
+        "-wait","file:///data/shapes.ttl",
+        "-timeout","10m",
+      "pyshacl",
+        "-s","/data/shapes.ttl",
+        "-m",
+        "-i","rdfs",
+        "-a",
+        "-f","human",
+        "/data/bibtex.rdf"
+    ]
     volumes:
       - datavolume:/data
     depends_on:
