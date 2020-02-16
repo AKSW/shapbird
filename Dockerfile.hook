@@ -5,6 +5,8 @@ WORKDIR /shapbird
 
 COPY ./ ./
 
+RUN chmod +x ./hook/deploy.sh
+
 EXPOSE 9000
 
-CMD ["webhookd", "--listen-addr=:9000","--scripts=/shapbird/webhookd"]
+CMD ["webhookd", "--listen-addr=:9000","--scripts=/shapbird/hook"]
