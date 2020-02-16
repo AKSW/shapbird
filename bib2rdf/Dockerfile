@@ -13,7 +13,6 @@ FROM openjdk:8-jdk-slim
 COPY --from=wget /bib2rdf/bibtex2rdf.jar /bib2rdf/bibtex2rdf.jar
 
 WORKDIR /bib2rdf
-COPY ./Makefile ./schema.map ./
+COPY ./schema.map ./
 
-ENTRYPOINT ["java","-jar","bibtex2rdf.jar"]
-CMD ["-schema","schema.map","-enc","UTF-8","/data/bibtex.bib","/data/bibtex.rdf","-baseuri","http://example.org/bib/"]
+CMD ["java","-jar","bibtex2rdf.jar", "-schema","schema.map","-enc","UTF-8","/data/bibtex.bib","/data/bibtex.rdf","-baseuri","http://example.org/bib/"]

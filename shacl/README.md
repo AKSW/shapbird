@@ -3,7 +3,7 @@
 ### Docker
 
 1. ` $ docker build -t shacl . `
-2. ` $ docker run --rm -it -v <path/to/rdf/file>:/data/bibtex.rdf shacl `
+2. ` $ docker run --rm -it -v <path/to/shapes/file>:/data/shapes.ttl -v <path/to/rdf/file>:/data/bibtex.rdf shacl `
 
 
 
