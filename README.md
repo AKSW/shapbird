@@ -8,25 +8,33 @@ Shapes for Bibtex to RDF
 
 ## Command Line Use
 
-### Deploy n8n and webhook workflow
+### Service Workflow (n8n & webhookd)
 
-1. ` $ docker build -t shapbird-hook -f Dockerfile.hook . `
-	* 
+1. ` $ docker-compose -f service-docker-compose.yml up `
+	* Builds, creates and starts the ShapBiRd service containers
+	* n8n
+		* Accessible via ` http://localhost:5678/ `
+		* Workflow can be uploaded from file ` workflow.json `
+	* webhookd
+		* Readies server for requets at port :9000
+		* Example deploy request ` $ curl http://localhost:9000/deploy `
+		* From inside docker network (ex. n8n) ` http://webhookd:9000/deploy `
 
-2. ` $ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --rm --name=shapbird-hook shapbird-hook `
-	* 
+2. ` $ docker-compose -f service-docker-compose.yml down -v `
+	* Stops and removes the ShapBiRd service containers, network and volumes
 
-### Direct use
+
+### Direct Deployment
 
 1. Save your BibTeX file as ` ./resources/aksw.bib `
 
-2. ` $ docker-compose up`
-	* Builds, creates and starts the ShapBiRd Docker containers
+2. ` $ docker-compose -f deploy-docker-compose.yml up `
+	* Builds, creates and starts the ShapBiRd deployment containers
 	* Uses default config 
 		` bib_path: ./resources/aksw.bib ` and ` base_uri: http://example.org/bib/ `
 
-3. ` $ docker-compose down -v `
-	* Stops and removes the ShapBiRd Docker containers and volumes
+3. ` $ docker-compose -f deploy-docker-compose.yml down -v `
+	* Stops and removes the ShapBiRd deployment containers, network and volumes
 
 
 
@@ -36,7 +44,8 @@ Shapes for Bibtex to RDF
 
 * [Docker Compose](https://docs.docker.com/compose/) - Used to handle the Docker workflow
 * [Docker](https://www.docker.com/) - Used to build and run
-* [webhook](https://github.com/adnanh/webhook) - Used to wait for HTTP request to run workflow
+* [n8n](https://n8n.io/) - Used to build workflow that triggers deployment by request
+* [webhookd](https://github.com/ncarlier/webhookd) - Used to wait for HTTP request to run deployment
 * [dockerize](https://github.com/jwilder/dockerize) - Used to wait for dependent services in Docker Compose
 * [bibtex2rdf](http://www.l3s.de/~siberski/bibtex2rdf/) - Used as configurable BibTeX to RDF converter
 * [ShacShifter](https://github.com/AKSW/ShacShifter) - (WIP) Used to parse the BibLaTeX specification into SHACL shapes
