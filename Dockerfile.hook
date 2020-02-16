@@ -7,4 +7,4 @@ COPY ./ ./
 
 EXPOSE 9000
 
-CMD ["webhookd", "--listen-addr=:9000","--scripts=/var/opt/webhookd/scripts"]
+CMD ["webhookd", "--listen-addr=:9000","--scripts=/shapbird/webhookd"]
