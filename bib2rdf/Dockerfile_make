@@ -1,6 +1,6 @@
 FROM debian
 
-WORKDIR /shapbib2rdf
+WORKDIR /bib2rdf
 COPY ./Makefile ./schema.map ./
 
 RUN apt-get update \

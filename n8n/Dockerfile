@@ -1,7 +1,7 @@
 # Image to start n8n service
 FROM n8nio/n8n
 
-WORKDIR /shapbird
+WORKDIR /n8n
 
 COPY ./workflow.json ./workflow.json
 
