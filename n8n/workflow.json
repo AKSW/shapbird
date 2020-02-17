@@ -1,5 +1,5 @@
 {
-  "name": "workflow",
+  "name": "shapbird",
   "nodes": [
     {
       "parameters": {},
@@ -21,13 +21,29 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 1,
       "position": [
-        440,
-        300
+        500,
+        490
+      ]
+    },
+    {
+      "parameters": {
+        "owner": "AKSW",
+        "repository": "shapbird",
+        "events": [
+          "star"
+        ]
+      },
+      "name": "Github Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [
+        310,
+        490
       ]
     }
   ],
   "connections": {
-    "Start": {
+    "Github Trigger": {
       "main": [
         [
           {
