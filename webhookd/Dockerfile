@@ -3,6 +3,7 @@ FROM ncarlier/webhookd
 
 WORKDIR /shapbird
 
+# Copy everthing to run deploy-docker-compose
 COPY ./ ./
 
 RUN chmod +x ./webhookd/deploy.sh

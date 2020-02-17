@@ -10,7 +10,7 @@ Shapes for Bibtex to RDF
 
 ### Service Workflow (n8n & webhookd)
 
-1. ` $ docker-compose -f service-docker-compose.yml up `
+1. ` $ docker-compose -f service-docker-compose.yml up [-d] `
 	* Builds, creates and starts the ShapBiRd service containers
 	* n8n
 		* Accessible via ` http://localhost:5678/ `
