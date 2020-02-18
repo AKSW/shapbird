@@ -3,7 +3,7 @@
 ### Docker
 
 webhookd
-1. ` $ dockebuild -t shapbird-hook -f ./webhookd/Dockerfile . `
+1. ` $ docker build -t shapbird-hook -f ./webhookd/Dockerfile . `
 	* Execute from parent directory (` .../shapbird `)
 	
 2. ` $ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --rm --name=shapbird-hook shapbird-hook `
