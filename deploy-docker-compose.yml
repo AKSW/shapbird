@@ -6,14 +6,14 @@ services:
     volumes:
       - datavolume:/data
       # Mount BibTeX file from host to volume
-      - ./resources/aksw.bib:/data/bibtex.bib
+      - ${HOST_PWD}/resources/aksw.bib:/data/bibtex.bib
 
   shifter:
     build: './shifter'
     volumes: 
       - datavolume:/data
       # Mount schema.map file from host to volume
-      - ./bib2rdf/schema.map:/data/schema.map
+      - ${HOST_PWD}/bib2rdf/schema.map:/data/schema.map
 
   shacl:
     build: './shacl'

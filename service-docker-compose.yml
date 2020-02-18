@@ -7,6 +7,9 @@ services:
       context: "."
     ports:
       - "9000:9000"
+    environment:
+      # Pass the host PWD for docker daemon volume mounting
+      - HOST_PWD=${PWD}
     volumes:
       # Docker daemon from host
       - /var/run/docker.sock:/var/run/docker.sock
