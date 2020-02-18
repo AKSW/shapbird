@@ -33,7 +33,7 @@ Shapes for Bibtex to RDF
 
 0. Save BibTeX file as follows ` ./resources/aksw.bib `
 
-1. ` $ HOST_PWD=${PWD} `
+1. ` $ export HOST_PWD=${PWD} `
 	* Set environment variable
 
 2. ` $ docker-compose -f deploy-docker-compose.yml up `
