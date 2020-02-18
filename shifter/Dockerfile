@@ -10,9 +10,13 @@ RUN git checkout feature/BiblatexDefParser
 
 
 # Final Image to create biblatex shapes
-FROM python
+FROM python:slim
 
 COPY --from=git /shifter/ShacShifter /shifter
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+		wget
 
 WORKDIR /shifter
 

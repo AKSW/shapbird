@@ -1,5 +1,9 @@
 # Image to run validation
-FROM python
+FROM python:slim
+
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends \
+		wget
 
 WORKDIR /shacl
 
