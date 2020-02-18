@@ -10,8 +10,13 @@ Shapes for Bibtex to RDF
 
 ### Service Workflow (n8n & webhookd)
 
-1. ` $ docker-compose -f service-docker-compose.yml up [-d] `
-	* Builds, creates and starts the ShapBiRd service containers
+0. Save BibTeX file as follows ` ./resources/aksw.bib `
+
+1. ` $ docker-compose -f deploy-docker-compose.yml build `
+	* Builds ShapBiRd deployment images
+
+2. ` $ docker-compose -f service-docker-compose.yml up [-d] `
+	* Builds, creates and starts the ShapBiRd service
 	* n8n
 		* Accessible via ` http://localhost:5678/ `
 		* Workflow can be uploaded from file ` workflow.json `
@@ -24,12 +29,15 @@ Shapes for Bibtex to RDF
 	* Stops and removes the ShapBiRd service containers, network and volumes
 
 
-### Direct Deployment
+### Deployment Workflow (Direct Use)
 
-1. Save your BibTeX file as ` ./resources/aksw.bib `
+0. Save BibTeX file as follows ` ./resources/aksw.bib `
+
+1. ` $ HOST_PWD=${PWD} `
+	* Set environment variable
 
 2. ` $ docker-compose -f deploy-docker-compose.yml up `
-	* Builds, creates and starts the ShapBiRd deployment containers
+	* Builds, creates and starts the ShapBiRd deployment
 	* Uses default config 
 		` bib_path: ./resources/aksw.bib ` and ` base_uri: http://example.org/bib/ `
 
