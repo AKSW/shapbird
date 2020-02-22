@@ -1,5 +1,5 @@
 # Image to run conversion
-FROM openjdk:8-jdk-slim
+FROM openjdk:jdk-slim
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
