@@ -8,6 +8,7 @@ services:
     ports:
       - "9000:9000"
     environment:
+      - BIB=${BIB}
       # Pass special project name to sparate network etc.
       - COMPOSE_PROJECT_NAME=deploy-shapbird
       # Pass the host PWD for docker daemon volume mounting

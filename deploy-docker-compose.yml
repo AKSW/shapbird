@@ -6,7 +6,7 @@ services:
     volumes:
       - datavolume:/data
       # Mount BibTeX file from host to volume
-      - ${HOST_PWD}/resources/aksw.bib:/data/bibtex.bib
+      - ${BIB}:/data/bibtex.bib
 
   shifter:
     build: './shifter'
